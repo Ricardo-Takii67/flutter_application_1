@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'tela_jogo_heroi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,13 +29,28 @@ class TelaInicial extends StatelessWidget {
           mainAxisAlignment: .center,
           children: [
             Text(
-              'Caverna do Dragão',
+              'Casa do Scapeline',
               style: Theme.of(context).textTheme.headlineMedium,
         ),
-        ElevatedButton(onPressed: () {}, child: Text('Entrar')),
-          ],
+        ElevatedButton(
+        onPressed: () { 
+          Navigator.push(context,
+          MaterialPageRoute(
+          builder: (context)=> const
+          TelaJogoHeroi()
+          ),
+          );
+        },
+         child: Text('Entrar')
+         ),
+         Image.asset('Roberto-Michelan.jpg')
+        
+          ]
+         
         ),
       ),
     );
   }
 }
+
+
