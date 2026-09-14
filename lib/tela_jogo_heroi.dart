@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
+
 import 'package:flutter/material.dart';
 
 class TelaJogoHeroi extends StatefulWidget {
@@ -14,6 +16,7 @@ class TelaJogoHeroi extends StatefulWidget {
       int moedas = 0;
       int poder = 0;
       String urlImage = '';
+
     @override
     Widget build(BuildContext context) {
     return Scaffold(body: 
@@ -36,7 +39,7 @@ class TelaJogoHeroi extends StatefulWidget {
               ),
           ],
         ),
-        image.network
+        Image.network(),
         Card(
                 elevation: 5, // Dá uma sombra 3D ao cartão
                 color: Colors.grey[200],
@@ -59,4 +62,32 @@ class TelaJogoHeroi extends StatefulWidget {
     
     );
     }
+
+void escolherheroi(String tipoHeroi){
+  setState((){
+  if(tipoHeroi == "Guerreiro"){
+    vida = 1000;
+    poder = 300;
+    moedas = 50;
+    urlImage = "";
   }
+
+    else if(tipoHeroi == "Arqueiro"){
+    vida = 500;
+    poder = 500;
+    moedas = 50;
+    urlImage = "";
+    }
+
+    else if(tipoHeroi == "Mago"){
+    vida = 1;
+    poder = 6767;
+    moedas = 50;
+    urlImage = "";
+    }
+  )
+}
+  }
+
+
+  
