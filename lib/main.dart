@@ -43,7 +43,7 @@ class TelaInicial extends StatelessWidget {
         },
          child: Text('Entrar')
          ),
-         Image.asset('Roberto-Michelan.jpg')
+         Image.asset('RobertoMichelan.jpg')
         
           ]
          

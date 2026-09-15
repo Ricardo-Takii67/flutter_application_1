@@ -1,6 +1,5 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/tela_ambiente.dart';
 
 class TelaJogoHeroi extends StatefulWidget {
   const TelaJogoHeroi({super.key});
@@ -39,7 +38,7 @@ class TelaJogoHeroi extends StatefulWidget {
               ),
           ],
         ),
-        Image.network(),
+        Image.asset(urlImage, height: 100, width: 100,),
         Card(
                 elevation: 5, // Dá uma sombra 3D ao cartão
                 color: Colors.grey[200],
@@ -47,7 +46,7 @@ class TelaJogoHeroi extends StatefulWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      Text('Classe: $heroiSelecionado', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                      Text('Classe: $nomeHeroi', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                       const Divider(), // Linha divisória
                       Text('❤️ Vida: $vida', style: const TextStyle(fontSize: 18, color: Colors.red)),
                       Text('💰 Moedas: $moedas', style: const TextStyle(fontSize: 18, color: Colors.orange)),
@@ -55,7 +54,18 @@ class TelaJogoHeroi extends StatefulWidget {
                     ],
                   ),
                 ),
-              )
+              ),
+               ElevatedButton(
+        onPressed: () { 
+          Navigator.push(context,
+          MaterialPageRoute(
+          builder: (context)=> const
+          TelaAmbiente(nomeHeroi, vida, poder, moedas, urlImage,
+          ),
+          );
+        },
+         child: Text('Entrar')
+              ),
       ],
          ),
         ),
@@ -66,26 +76,29 @@ class TelaJogoHeroi extends StatefulWidget {
 void escolherheroi(String tipoHeroi){
   setState((){
   if(tipoHeroi == "Guerreiro"){
+    nomeHeroi = "Guerreiro";
     vida = 1000;
     poder = 300;
     moedas = 50;
-    urlImage = "";
+    urlImage = "guerreiro.jpg.png";
   }
 
     else if(tipoHeroi == "Arqueiro"){
+      nomeHeroi = "Arqueiro";
     vida = 500;
     poder = 500;
     moedas = 50;
-    urlImage = "";
+    urlImage = "arqueiro.jpg.png";
     }
 
     else if(tipoHeroi == "Mago"){
+      nomeHeroi = "Mago";
     vida = 1;
     poder = 6767;
     moedas = 50;
-    urlImage = "";
+    urlImage = "mago.png";
     }
-  )
+});
 }
   }
 
