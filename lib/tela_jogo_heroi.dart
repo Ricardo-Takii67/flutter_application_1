@@ -6,10 +6,9 @@ class TelaJogoHeroi extends StatefulWidget {
   
   @override
   State<TelaJogoHeroi> createState() => TelaJogoHeroiState();
-  }
-    
-    
-  class TelaJogoHeroiState extends State<TelaJogoHeroi> {
+}
+
+class TelaJogoHeroiState extends State<TelaJogoHeroi> {
       String nomeHeroi = "";
       int vida = 0;
       int moedas = 0;
@@ -59,10 +58,8 @@ class TelaJogoHeroi extends StatefulWidget {
         onPressed: () { 
           Navigator.push(context,
           MaterialPageRoute(
-          builder: (context)=> const
-          TelaAmbiente(nomeHeroi, vida, poder, moedas, urlImage,
-          ),
-          );
+          builder: (context)=> TelaAmbiente(nomeHeroi: nomeHeroi, vida: vida, poder: poder, coins: moedas, urlImage: urlImage,)
+          ));
         },
          child: Text('Entrar')
               ),
@@ -84,7 +81,7 @@ void escolherheroi(String tipoHeroi){
   }
 
     else if(tipoHeroi == "Arqueiro"){
-      nomeHeroi = "Arqueiro";
+    nomeHeroi = "Arqueiro";
     vida = 500;
     poder = 500;
     moedas = 50;
@@ -98,9 +95,9 @@ void escolherheroi(String tipoHeroi){
     moedas = 50;
     urlImage = "mago.png";
     }
-});
+  });
 }
-  }
+}
 
 
   
