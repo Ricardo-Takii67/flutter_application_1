@@ -17,8 +17,29 @@ class TelaAmbiente extends StatefulWidget {
   State<StatefulWidget> createState() => TelaAmbienteState();
 }
 class TelaAmbienteState extends State<TelaAmbiente> {
+  double posicaoHorizontalHeroi = 50;
+  double posicaoVerticalHeroi = 20;
+  double posHorizontalPocao = 150;
+  double posVerticalPocao = 200;
+  int vida = widget.vida;
+  bool pocaoColetada = false;
 
-
+  void andarParaDireita() {
+    setState(() {
+      posicaoHorizontalHeroi += 40;
+    });
+  }
+  void andarParaEsquerda() {
+    setState(() {
+      posicaoHorizontalHeroi += 40;
+    });
+  }
+  void andarParaCima() async {
+    setState(() {
+      if (posicaoHorizontalHeroi > 10)
+      posicaoVerticalHeroi += 20;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
