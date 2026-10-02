@@ -68,15 +68,35 @@ class TelaAmbienteState extends State<TelaAmbiente> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('sla ${widget.heroi}')
+        title: Text('sla ${widget.heroi}'),
         backgroundColor: Colors.black87,
         foregroundColor: Colors.white,
       ),
+
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(colorido.gif)
+            child: Image.asset(colorido.gif),
           ),
+          
+          Visibility(visible: !pocaoColetada
+          child: Positioned(
+            left: posHorizontalPocao,
+            bottom: posVerticalPocao,
+            child: Image.asset("colorido.gif"),
+          ),
+          ),
+
+          AnimatedPositioned(
+            duration: const Duration(
+              milliseconds: 300,
+            )
+            curve: Curves.easeInOut,
+            left: posicaoHorizontalHeroi,
+            bottom: posicaoVerticalHeroi,
+            child: Image.asset(widget.urlImagem, height: 120),
+            ),
+
           Positioned(
               bottom: 30,
               left: 20,
