@@ -10,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const TelaInicial(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TelaInicial(title: 'Casa do Scapeline'),
     );
   }
 }
@@ -26,31 +27,29 @@ class TelaInicial extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Casa do Scapeline',
               style: Theme.of(context).textTheme.headlineMedium,
-        ),
-        ElevatedButton(
-        onPressed: () { 
-          Navigator.push(context,
-          MaterialPageRoute(
-          builder: (context)=> const
-          TelaJogoHeroi()
-          ),
-          );
-        },
-         child: Text('Entrar')
-         ),
-         Image.asset('RobertoMichelan.jpg')
-        
-          ]
-         
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TelaJogoHeroi(),
+                  ),
+                );
+              },
+              child: const Text('Entrar'),
+            ),
+            const SizedBox(height: 16),
+            Image.asset('RobertoMichelan.jpg', height: 200),
+          ],
         ),
       ),
     );
   }
 }
-
-
